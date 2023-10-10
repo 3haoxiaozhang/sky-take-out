@@ -33,7 +33,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("当前线程的ID"+Thread.currentThread().getId());
+
 
 
 
