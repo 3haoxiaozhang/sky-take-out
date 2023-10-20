@@ -27,6 +27,10 @@ public class Dish implements Serializable {
     //菜品分类id
     private Long categoryId;
 
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
     //菜品价格
     private BigDecimal price;
 

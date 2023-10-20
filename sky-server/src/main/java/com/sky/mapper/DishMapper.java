@@ -51,4 +51,17 @@ public interface DishMapper {
      */
     @Delete("delete from sky_take_out.dish where id=#{id} ")
     void deleteById(Long id);
+
+    /**
+     * 根据菜品id集合批量删除菜品
+     * @param ids
+     */
+    void deleteByIds(List<Long> ids);
+
+    /**
+     * 根据id来动态修改我们的菜品
+     * @param dish
+     */
+    @AutoFill(value=OperationType.UPDATE)
+    void update(Dish dish);
 }
