@@ -19,7 +19,6 @@
             <if test="dishFlavor !=null">
                 and  dish_flavor=#{dishFlavor}
             </if>
-
         </where>
 
     </select>
