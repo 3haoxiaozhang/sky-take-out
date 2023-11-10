@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
@@ -65,7 +66,14 @@ public interface OrderMapper {
     void updateConfirm(Long id, Integer status);
 
 
-
+    /**
+     * 根据订单状态和下单时间查询订单状态
+     * @param status
+     * @param orderTime
+     * @return
+     */
+    @Select("select * from sky_take_out.orders where status = #{status} and order_Time < #{orderTime}")
+    List<Orders> getBystatusAndOrderTimeLT(Integer status, LocalDateTime orderTime);
 
 
 
