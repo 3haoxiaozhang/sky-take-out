@@ -61,4 +61,11 @@ public interface ShoppingCartMapper {
      */
     @Update("update sky_take_out.shopping_cart set number=#{number}")
     void decrease(int number);
+
+    /**
+     * 批量插入购物车数据
+     *
+     * @param shoppingCart
+     */
+    void insertBatch(ShoppingCart shoppingCart);
 }
