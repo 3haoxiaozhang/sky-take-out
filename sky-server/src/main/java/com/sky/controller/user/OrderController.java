@@ -51,6 +51,10 @@ public class OrderController {
         log.info("订单支付：{}", ordersPaymentDTO);
         OrderPaymentVO orderPaymentVO = orderService.payment(ordersPaymentDTO);
         log.info("生成预支付交易单：{}", orderPaymentVO);
+
+        //模拟交易成功，修改数据库订单状态
+        orderService.paySuccess(ordersPaymentDTO.getOrderNumber());
+        log.info("模拟交易成功：{}",ordersPaymentDTO.getOrderNumber());
         return Result.success(orderPaymentVO);
     }
 
@@ -105,6 +109,16 @@ public class OrderController {
         return Result.success();
     }
 
+    /**
+     * 客户接单
+     * @return
+     */
+    @GetMapping("/reminder/{id}")
+    @ApiOperation("客户催单")
+    public Result reminder(@PathVariable("id") Long id){
+        orderService.reminder(id);
+        return Result.success();
+    }
 
 
 }
